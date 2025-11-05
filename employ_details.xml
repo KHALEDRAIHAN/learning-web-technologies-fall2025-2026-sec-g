@@ -1,0 +1,59 @@
+<employ_details>
+
+  <employ> 
+    <id sr="1">1</id>
+    <first_name>Jhon Doe</first_name>
+      </employ> 
+
+    <address>
+     
+        <houseno> H#38</houseno>
+        <road>#R3</road>
+        <area>Banani</area>
+        <city>Dhaka</city>
+    <department>Sales</department>
+    <salary>$20000</salary>
+    </address>
+  
+ 
+  
+ 
+ 
+  <employ> 
+    <id sr="1">2</id>
+    <first_name>Mark Jukerberg</first_name> 
+  </employ> 
+
+    <address>
+        <flatno> Flat#A/</flatno>
+        <houseno> H#20</houseno>
+        <road>#R3</road>
+        <area>Mirpur</area>
+        <city>Dhaka</city>
+    <department></department>
+    <salary>$12000</salary>
+    </address>
+  
+ 
+ 
+<employ> 
+    <id sr="1">3</id>
+    <first_name>Ala voski</first_name>
+   </employ> 
+
+    <address>
+  
+        <houseno> H#38</houseno>
+        <road>#R3</road>
+        <area>Motijheel</area>
+        
+    <department></department>
+    <salary>$30000</salary>
+    </address>
+  
+ 
+ 
+
+</employ_details>
+
+
