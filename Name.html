@@ -1,0 +1,59 @@
+
+<head>
+    <title>Name Validation</title>
+</head>
+<body>
+    <h2>Name Validation</h2>
+    <form onsubmit="return validateForm()">
+        Name: <input type="text" id="name" onblur="checkName()">
+        <p id="nameError"></p>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        let nameField = document.getElementById("name");
+        let nameError = document.getElementById("nameError");
+
+        function checkName(){
+            let name = nameField.value.trim();
+            nameError.style.color = "red";
+
+            if(name === ""){
+                nameError.innerHTML = "Name cannot be empty";
+                return false;
+            }
+
+            let words = name.split(" ");
+            if(words.length < 2){
+                nameError.innerHTML = "Must contain at least two words";
+                return false;
+            }
+
+            let first = name.charAt(0);
+            if(!((first >= 'A' && first <= 'Z') || (first >= 'a' && first <= 'z'))){
+                nameError.innerHTML = "Must start with a letter";
+                return false;
+            }
+
+            for(let i=0; i<name.length; i++){
+                let ch = name.charAt(i);
+                if(!(
+                    (ch >= 'A' && ch <= 'Z') ||
+                    (ch >= 'a' && ch <= 'z') ||
+                    ch === '.' || ch === '-' || ch === ' '
+                )){
+                    nameError.innerHTML = "Invalid character found: " + ch;
+                    return false;
+                }
+            }
+
+            nameError.innerHTML = "";
+            return true;
+        }
+
+        function validateForm(){
+            return checkName();
+        }
+    </script>
+</body>
+</html>

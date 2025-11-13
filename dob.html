@@ -1,0 +1,65 @@
+
+<head>
+    <title>DOB Validation</title>
+</head>
+<body>
+    <h2>Date of Birth Validation</h2>
+    <form onsubmit="return validateForm()">
+        DOB (dd/mm/yyyy): <input type="text" id="dob" onblur="checkDOB()">
+        <p id="dobError"></p>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        let dobField = document.getElementById("dob");
+        let dobError = document.getElementById("dobError");
+
+        function checkDOB(){
+            let dob = dobField.value.trim();
+            dobError.style.color = "red";
+
+            if(dob === ""){
+                dobError.innerHTML = "DOB cannot be empty";
+                return false;
+            }
+
+            let parts = dob.split("/");
+            if(parts.length !== 3){
+                dobError.innerHTML = "Use dd/mm/yyyy format";
+                return false;
+            }
+
+            let dd = Number(parts[0]);
+            let mm = Number(parts[1]);
+            let yyyy = Number(parts[2]);
+
+            if(isNaN(dd) || isNaN(mm) || isNaN(yyyy)){
+                dobError.innerHTML = "Date must be numeric";
+                return false;
+            }
+
+            if(dd < 1 || dd > 31){
+                dobError.innerHTML = "Invalid day";
+                return false;
+            }
+
+            if(mm < 1 || mm > 12){
+                dobError.innerHTML = "Invalid month";
+                return false;
+            }
+
+            if(yyyy < 1900 || yyyy > 2016){
+                dobError.innerHTML = "Year must be between 1900 and 2016";
+                return false;
+            }
+
+            dobError.innerHTML = "";
+            return true;
+        }
+
+        function validateForm(){
+            return checkDOB();
+        }
+    </script>
+</body>
+</html>
