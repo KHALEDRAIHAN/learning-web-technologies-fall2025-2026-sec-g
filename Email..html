@@ -1,0 +1,43 @@
+
+<head>
+    <title>Email Validation</title>
+</head>
+<body>
+    <h2>Email Validation</h2>
+    <form onsubmit="return validateForm()">
+        Email: <input type="text" id="email" onblur="checkEmail()">
+        <p id="emailError"></p>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        let emailField = document.getElementById("email");
+        let emailError = document.getElementById("emailError");
+
+        function checkEmail(){
+            let email = emailField.value.trim();
+            emailError.style.color = "red";
+
+            if(email === ""){
+                emailError.innerHTML = "Email cannot be empty";
+                return false;
+            }
+
+            let at = email.indexOf("@");
+            let dot = email.lastIndexOf(".");
+
+            if(at < 1 || dot < at + 2 || dot + 2 >= email.length){
+                emailError.innerHTML = "Invalid email format";
+                return false;
+            }
+
+            emailError.innerHTML = "";
+            return true;
+        }
+
+        function validateForm(){
+            return checkEmail();
+        }
+    </script>
+</body>
+</html>
