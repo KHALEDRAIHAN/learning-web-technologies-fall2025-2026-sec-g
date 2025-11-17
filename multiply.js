@@ -9,7 +9,6 @@ let deleteBtn = document.getElementById("delete");
 
 let expression = ""; 
 
-
 buttons.forEach(function(button) {
     button.addEventListener("click", function() {
         expression += this.getAttribute("data-value");
